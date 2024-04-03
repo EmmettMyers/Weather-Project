@@ -7,8 +7,8 @@ client is a react app
 model is "backend" for model
 
 Tasks:
-Emmett - Data guy
-Landen - model
-Carly - UI
-kKaden - UI / architecture 
-Harith - Intern
+Emmett - Data guy |
+Landen - model |
+Carly - UI |
+Kaden - UI and Project Achitecture |
+Harith - Intern |
