@@ -1,11 +1,9 @@
 import requests
-from model.InputCities import *
+from InputCities import *
 import openmeteo_requests
 import requests_cache
 import pandas as pd
 from retry_requests import retry
-import json
-import os
 
 # returns a dictionary with current weather forecast data for the largest 100 U.S. cities
 # keys: city, values: array of weather variables 
@@ -39,16 +37,14 @@ def get_model_training_data():
         hourly_precipitation = hourly.Variables(3).ValuesAsNumpy()[0]
         hourly_wind_speed_10m = hourly.Variables(4).ValuesAsNumpy()[0]
         hourly_wind_direction_10m = hourly.Variables(5).ValuesAsNumpy()[0]
-        
+
         cities_current_weather[city] = {
-            "Temperature": float(hourly_temperature_2m.item()),
-            "Humidity": float(hourly_relative_humidity_2m.item()),
-            "Dew Point": float(hourly_dew_point_2m.item()),
-            "Precipitation": float(hourly_precipitation.item()),
-            "Wind Speed": float(hourly_wind_speed_10m.item()),
-            "Wind Direction": float(hourly_wind_direction_10m.item())
+            "Temperature": hourly_temperature_2m,
+            "Humidity": hourly_relative_humidity_2m,
+            "Dew Point": hourly_dew_point_2m,
+            "Precipitation": hourly_precipitation,
+            "Wind Speed": hourly_wind_speed_10m,
+            "Wind Direction": hourly_wind_direction_10m
         }
 
-    #print(cities_current_weather)
-    print(cities_current_weather['Los Angeles, California'])
     return cities_current_weather
