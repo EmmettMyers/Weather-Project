@@ -2,13 +2,13 @@
 
 Create branches `{name}-{task}` please! 
 
-client is a react app
+Client is a react app
 
-model is "backend" for model
+Model is "backend" for model
 
 Tasks:
-Emmett - Data guy |
-Landen - model |
-Carly - UI |
-Kaden - UI and Project Achitecture |
-Harith - Intern |
+-  Emmett - Find, Fetch, Clean, and return data
+- Landen - Clean, Create, and Predict City with RF model. 
+- Carly - Front end UI Design
+- Harith - Front end UI display data from model
+- Kaden - Front end UI and tune Model how you see fit.
