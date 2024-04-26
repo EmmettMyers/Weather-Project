@@ -1,3 +1,4 @@
+import heapq
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
@@ -9,6 +10,7 @@ import fetchData
 def predict_city(temperature, humidity, dew_point, precipitation, wind_speed, wind_direction):
     # Fetch data from API
     api_data = fetchData.get_model_training_data()
+    #print(api_data)
     
     # Prepare the dataset
     data = []
@@ -37,11 +39,6 @@ def predict_city(temperature, humidity, dew_point, precipitation, wind_speed, wi
     model = DecisionTreeClassifier(random_state=42)
     model.fit(X_train, y_train)
     
-    # Model evaluation
-    predictions = model.predict(X_test)
-    accuracy = accuracy_score(y_test, predictions)
-    print(f"Model training accuracy: {accuracy:.2%}")
-    
     # Prepare new data for prediction
     new_data = pd.DataFrame(np.array([[temperature, humidity, dew_point, precipitation, wind_speed, wind_direction]]),
                             columns=["Temperature", "Humidity", "Dew Point", "Precipitation", "Wind Speed", "Wind Direction"])
@@ -49,7 +46,8 @@ def predict_city(temperature, humidity, dew_point, precipitation, wind_speed, wi
     # Predict
     predicted_label = model.predict(new_data)
     predicted_city = label_encoder.inverse_transform(predicted_label)
+    predicted_city_array = [predicted_city.tolist()]
 
-    #Return
-    print(f"Predicted city: {predicted_city[0]}")
-    return predicted_city[0]
+    # Return
+    print(f"Predicted cities: {predicted_city}")
+    return predicted_city_array
