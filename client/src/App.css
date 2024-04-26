@@ -1,15 +1,35 @@
 .App {
+  background-image: url("./bg2.jpg");
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+  background-blend-mode: multiply; /* Blend the background image with the background color */
+  background-position: center;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background-image: url("./bg2.jpg");
-  background-position: center;
-  background-size: cover;
-  width: 100vw;
   height: 100vh;
-  color: white;
-  gap: 5rem;
+  width: 100vw;
+}
+
+.project-holder {
+  padding-bottom: 20px;
+}
+
+.project-title {
+  font-size: 35px;
+  font-style: italic;
+}
+
+.cards-container {
+  width: 100vw;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .model-form {
@@ -18,9 +38,13 @@
   gap: 1.5rem;
   background-color: rgba(255, 255, 255, 0.404);
   height: 40rem;
-  width: 25%;
+  width: 35%;
   border-radius: 1rem;
   padding-top: 1rem;
+}
+
+.enter-txt {
+  line-height: 30px;
 }
 
 .model-form input {
@@ -31,7 +55,7 @@
   caret-color: white;
   margin: 0;
   padding: 0;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   border-bottom: 0.2rem solid white;
   width: 80%;
 }
@@ -58,6 +82,7 @@
   border-radius: 0.2rem;
   cursor: pointer;
   font-weight: bold;
+  font-size: 20px;
   color: white;
   border: 0.15rem solid white;
   transition: all 300ms;
@@ -90,8 +115,24 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 40rem;
   padding-top: 1rem;
+  background-color: rgba(255, 255, 255, 0.404);
+  height: 40rem;
+  width: 30%;
+  border-radius: 1rem;
+}
+
+.predicted-title {
+  line-height: 30px;
+}
+
+.predicted-desc {
+  font-size: 18px;
+  line-height: 26px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-style: italic;
+  padding-bottom: 20px;
 }
 
 .icon-label-container {
@@ -99,4 +140,10 @@
   align-items: center;
   justify-content: space-between;
   width: 80%;
+}
+
+.prediction {
+  font-size: 28px;
+  line-height: 30px;
+  font-weight: 600;
 }
