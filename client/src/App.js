@@ -10,6 +10,7 @@ import { GiPaperWindmill } from "react-icons/gi";
 function App() {
   const [inputs, setInputs] = useState({});
   const [predictions, setPredictions] = useState([]);
+  const [citiesFetched, setCitiesFetched] = useState(true);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -19,6 +20,7 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setCitiesFetched(false);
     const response = await fetch("http://localhost:5000/predict", {
       method: "POST",
       headers: {
@@ -28,6 +30,7 @@ function App() {
     });
     const data = await response.json();
     setPredictions(data.predictions);
+    setCitiesFetched(true);
   };
 
   return (
@@ -157,9 +160,15 @@ function App() {
           <div className="predictions-container">
             <h1 className="predicted-title">Predicted Cities</h1>
             <div className="predicted-desc">Ranked by predicted percentage, or how close the entered features are to a city's own features</div>
-            {predictions.map((prediction, index) => (
-              <p key={index} className="prediction">{`${index + 1}. ${prediction}`}</p>
-            ))}
+            {
+              !citiesFetched ?
+              <div className="loader-holder">
+                <div className="loader"></div>
+              </div> :
+              predictions.map((prediction, index) => (
+                <p key={index} className="prediction">{`${index + 1}. ${prediction}`}</p>
+              ))
+            }
           </div>
         </div>
       </div>
