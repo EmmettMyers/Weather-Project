@@ -162,12 +162,15 @@ function App() {
             <div className="predicted-desc">Ranked by predicted percentage, or how close the entered features are to a city's own features</div>
             {
               !citiesFetched ?
-              <div className="loader-holder">
-                <div className="loader"></div>
-              </div> :
-              predictions.map((prediction, index) => (
-                <p key={index} className="prediction">{`${index + 1}. ${prediction}`}</p>
-              ))
+                <div className="loader-holder">
+                  <div className="loader"></div>
+                </div> :
+                predictions.map((prediction, index) => (
+                  <div>
+                    <p key={index} className="prediction">{`${index + 1}. ${prediction[0]}`}</p>
+                    <p key={index} className="accuracy">{`Similarity: ${prediction[1]}%`}</p>
+                  </div>
+                ))
             }
           </div>
         </div>
