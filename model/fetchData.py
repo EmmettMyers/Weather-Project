@@ -1,4 +1,3 @@
-import requests
 from InputCities import *
 import openmeteo_requests
 import requests_cache

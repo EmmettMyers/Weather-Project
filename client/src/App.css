@@ -1,9 +1,7 @@
 .App {
   background-image: url("./bg2.jpg");
   background-color: rgba(0, 0, 0, 0.5);
-  /* Black color with 50% opacity */
   background-blend-mode: multiply;
-  /* Blend the background image with the background color */
   background-position: center;
   background-size: cover;
   color: white;
@@ -176,7 +174,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }

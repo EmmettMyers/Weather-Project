@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import MachineLearningModel
 from EuclideanModel import find_most_similar_cities
 
 app = Flask(__name__)

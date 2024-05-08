@@ -159,7 +159,7 @@ function App() {
           </form>
           <div className="predictions-container">
             <h1 className="predicted-title">Predicted Cities</h1>
-            <div className="predicted-desc">Ranked by predicted percentage, or how close the entered features are to a city's own features</div>
+            <div className="predicted-desc">Ranked by similarity percentage, or how close the entered features are to a city's current features</div>
             {
               !citiesFetched ?
                 <div className="loader-holder">
