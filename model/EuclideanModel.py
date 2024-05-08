@@ -1,6 +1,6 @@
 import heapq
 import math
-import fetchData
+import FetchData
 
 def euclidean_distance(user_values, city_values):
     distance = 0
@@ -15,17 +15,17 @@ def calculate_percentage_similarity(user_values, city_values):
     return round(similarity_percentage, 2)
 
 def find_most_similar_cities(user_values, k=5):
-    api_data = fetchData.get_model_training_data()
+    api_data = FetchData.get_model_training_data()
     heap = []
     
     for city, city_values in api_data.items():
         distance = euclidean_distance(user_values, city_values)
         similarity_percentage = calculate_percentage_similarity(user_values, city_values)
-        heapq.heappush(heap, (distance, city, similarity_percentage))  # Include similarity percentage in the heap
+        heapq.heappush(heap, (distance, city, similarity_percentage))
     
     most_similar_cities = []
     for _ in range(min(k, len(heap))):
-        distance, city, similarity_percentage = heapq.heappop(heap)  # Retrieve similarity percentage from the heap
-        most_similar_cities.append((city, similarity_percentage))  # Append tuple with city name and similarity percentage
+        distance, city, similarity_percentage = heapq.heappop(heap)
+        most_similar_cities.append((city, similarity_percentage))
     
     return most_similar_cities

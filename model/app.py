@@ -9,18 +9,6 @@ CORS(app)
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
-    
-    """
-    predictions = MachineLearningModel.predict_city(
-        temperature=data['temperature'], 
-        humidity=data['humidity'], 
-        dew_point=data['dewPoint'], 
-        precipitation=data['precipitation'], 
-        wind_speed=data['windSpeed'], 
-        wind_direction=data['windDirection']
-    )
-    """
-
     user_values = {
         'Temperature': data['temperature'],
         'Humidity': data['humidity'],
